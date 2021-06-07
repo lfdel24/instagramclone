@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:instagramclone/src/core/widgets/custom_appbar.dart';
+import 'package:instagramclone/src/pages/widgets/history_widget.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Image.asset(
-          'assets/img/logo.png',
-          fit: BoxFit.cover,
-          height: 40,
-          width: 100,
-          color: Colors.black,
-        ),
-      ),
+      appBar: CustomAppBar(),
       body: _BuilderBody(),
     );
   }
@@ -24,8 +17,13 @@ class _BuilderBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Stack(
-      children: [],
+        child: SingleChildScrollView(
+      child: Column(
+        children: [
+          HistoryWidget(),
+          Divider(),
+        ],
+      ),
     ));
   }
 }
